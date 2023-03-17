@@ -23,41 +23,50 @@ class MyApp extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            Container(
-              padding: const EdgeInsets.all(15.0),
-              width: 400,
-              height: 250,
-              color: Colors.black,
-              child: const Catalogo(
-                  icone: Icon(Icons.add_circle_outline_outlined),
-                  cor1: Colors.yellow,
-                  cor2: Colors.brown,
-                  cor3: Colors.redAccent,
-                  cor4: Colors.purple),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(15.0),
+                width: 400,
+                height: 250,
+                color: Colors.blue,
+                child: const Catalogo(
+                    icone: Icon(Icons.add_circle_outline_outlined),
+                    cor1: Colors.yellow,
+                    cor2: Colors.brown,
+                    cor3: Colors.redAccent,
+                    cor4: Colors.purple),
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(15.0),
-              width: 400,
-              height: 250,
-              color: Colors.yellow,
-              child: const Catalogo(
-                  icone: Icon(Icons.account_circle_sharp),
-                  cor1: Colors.blue,
-                  cor2: Colors.orange,
-                  cor3: Colors.redAccent,
-                  cor4: Colors.purple),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(15.0),
+                width: 400,
+                height: 250,
+                color: Colors.yellow,
+                child: const Catalogo(
+                    icone: Icon(Icons.account_circle_sharp),
+                    cor1: Colors.blue,
+                    cor2: Colors.orange,
+                    cor3: Colors.redAccent,
+                    cor4: Colors.purple),
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(15.0),
-              width: 400,
-              height: 250,
-              color: Colors.brown,
-              child: const Catalogo(
-                  icone: Icon(Icons.ac_unit_rounded),
-                  cor1: Colors.black,
-                  cor2: Color.fromARGB(255, 159, 163, 70),
-                  cor3: Colors.redAccent,
-                  cor4: Colors.purple),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(15.0),
+                width: 400,
+                height: 250,
+                color: Colors.brown,
+                child: const Catalogo(
+                    icone: Icon(Icons.ac_unit_rounded),
+                    cor1: Colors.pink,
+                    cor2: Color.fromARGB(255, 159, 163, 70),
+                    cor3: Colors.redAccent,
+                    cor4: Colors.purple),
+              ),
             ),
           ],
         ),
@@ -84,7 +93,14 @@ class Card extends StatelessWidget {
             border: Border.all(
               color: Colors.black,
               width: 2,
-            )),
+            ),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 2,
+                  spreadRadius: 2,
+                  offset: Offset(2, 0))
+            ]),
         child: icone,
       ),
     );
@@ -113,10 +129,10 @@ class Catalogo extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          Card(cor: cor1),
+          Card(icone: null, cor: cor1),
           Card(icone: icone, cor: cor2),
           Card(icone: icone, cor: cor3),
-          Card(cor: cor4),
+          Card(icone: null, cor: cor4),
         ],
       ),
     );
