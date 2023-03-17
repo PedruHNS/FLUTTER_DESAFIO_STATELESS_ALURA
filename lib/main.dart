@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
               height: 250,
               color: Colors.black,
               child: const Catalogo(
+                  icone: Icon(Icons.add_circle_outline_outlined),
                   cor1: Colors.yellow,
                   cor2: Colors.brown,
                   cor3: Colors.redAccent,
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
               height: 250,
               color: Colors.yellow,
               child: const Catalogo(
+                  icone: Icon(Icons.account_circle_sharp),
                   cor1: Colors.blue,
                   cor2: Colors.orange,
                   cor3: Colors.redAccent,
@@ -51,6 +53,7 @@ class MyApp extends StatelessWidget {
               height: 250,
               color: Colors.brown,
               child: const Catalogo(
+                  icone: Icon(Icons.ac_unit_rounded),
                   cor1: Colors.black,
                   cor2: Color.fromARGB(255, 159, 163, 70),
                   cor3: Colors.redAccent,
@@ -65,14 +68,25 @@ class MyApp extends StatelessWidget {
 
 class Card extends StatelessWidget {
   final Color cor;
-  const Card({required this.cor, super.key});
+  final Icon? icone;
+  const Card({this.icone, required this.cor, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 140,
-      height: 200,
-      color: cor,
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Container(
+        width: 140,
+        height: 200,
+        decoration: BoxDecoration(
+            color: cor,
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            border: Border.all(
+              color: Colors.black,
+              width: 2,
+            )),
+        child: icone,
+      ),
     );
   }
 }
@@ -82,9 +96,11 @@ class Catalogo extends StatelessWidget {
   final Color cor2;
   final Color cor3;
   final Color cor4;
+  final Icon? icone;
 
   const Catalogo(
-      {required this.cor1,
+      {this.icone,
+      required this.cor1,
       required this.cor2,
       required this.cor3,
       required this.cor4,
@@ -98,8 +114,8 @@ class Catalogo extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           Card(cor: cor1),
-          Card(cor: cor2),
-          Card(cor: cor3),
+          Card(icone: icone, cor: cor2),
+          Card(icone: icone, cor: cor3),
           Card(cor: cor4),
         ],
       ),
